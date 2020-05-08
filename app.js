@@ -1,4 +1,4 @@
-// const fs = require('fs');
+const fs = require('fs');
 
 const inquirer = require("inquirer")
 
@@ -146,11 +146,11 @@ promptUser()
         const pageHTML = generatePage(portfolioData);
 
         //arguments - file created (output file), data that is being written (html string) and error 
-        //fs.writeFile('./index.html', pageHTML, err => {
-            //if(err) throw new Error (err);
+        fs.writeFile('./index.html', pageHTML, err => {
+            if(err) throw new Error (err);
 
         // success message 
-        // console.log("Portfolio complete! Check out index.html to see the output!");
-// });
+        console.log("Portfolio complete! Check out index.html to see the output!");
+});
     });
 
