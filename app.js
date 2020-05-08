@@ -2,14 +2,13 @@
 
 const inquirer = require("inquirer")
 
-// const generatePage = require('./src/page-template.js');
+const generatePage = require('./src/page-template.js');
 
 
 // const profileDataArgs = process.argv.slice(2);
 // console.log(profileDataArgs);
 
 // const [name, github] = profileDataArgs;
-// cont pageHTML = generatePage(portfolioData);
  
 // const printProfileData = profileDataArr => {
 //     for (let i = 0; i < profileDataArr.length; i +=1) {
@@ -23,14 +22,6 @@ const inquirer = require("inquirer")
 // };
 
 // printProfileData(profileDataArgs); 
-
-// arguments - file created (output file), data that is being written (html string) and error 
-// fs.writeFile('./index.html', generatePage(name,github), err => {
-//     if(err) throw new Error (err);
-
-//     // success message 
-//     console.log("Portfolio complete! Check out index.html to see the output!");
-// });
 
 // add function so that function can be invoked on demand within the flow of the app
 const promptUser = () => {
@@ -152,6 +143,14 @@ Add a New Project
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
-        console.log(portfolioData);
+        const pageHTML = generatePage(portfolioData);
+
+        //arguments - file created (output file), data that is being written (html string) and error 
+        //fs.writeFile('./index.html', pageHTML, err => {
+            //if(err) throw new Error (err);
+
+        // success message 
+        // console.log("Portfolio complete! Check out index.html to see the output!");
+// });
     });
 

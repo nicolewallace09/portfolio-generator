@@ -1,5 +1,10 @@
 // generate html as a string (template literal)
-const generatePage = (name, github) => {
+module.exports = templateData => {
+    // destruct projects and about data from template Data based on their property key names - '...' is rest operator 
+    // this will create three variables based on data in templateData 
+    const { projects, about, ...header  } = templateData;
+        console.log(header, about, projects)
+
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -11,11 +16,9 @@ const generatePage = (name, github) => {
     </head>
 
     <body>
-        <h1>${name}</h1>
-        <h2><a href="https://github.com/${github}">Github</a></h2>
+        <h1>${templateData.name}</h1>
+        <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
     </body>
     </html>
     `;
-}
-
-module.exports = generatePage; 
+};
